@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link title="timeline-styles" rel="stylesheet"
+      href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+    <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+    <style>
+      .tl-storyslider {
+        height: 75vh;
+      }
+
+      .tl-timenav {
+        height: 25vh;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="my-timeline"></div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"></script>
+    <script>
+      const event1 = {
+        start_date: {
+          year: 1963,
+          month: 8,
+          day: 11
+        },
+        text: {
+          headline: "A Musical Heritage",
+          text: "<p>Born in New Jersey on August 9th, 1963, Houston grew up surrounded by the music business. Her mother is gospel singer Cissy Houston and her cousins are Dee Dee and Dionne Warwick.</p>"
+        },
+        media: {
+          url: "{{ static_url }}/img/examples/houston/family.jpg",
+          caption: "Houston's mother and Gospel singer, Cissy Houston (left) and cousin Dionne Warwick.",
+          credit: "Cissy Houston photo:<a href='http://www.flickr.com/photos/11447043@N00/418180903/'>Tom Marcello</a><br/><a href='http://commons.wikimedia.org/wiki/File%3ADionne_Warwick_television_special_1969.JPG'>Dionne Warwick: CBS Television via Wikimedia Commons</a>"
+        },
+        background: {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group A"
+      };
+      const event2 = {
+        media: {
+          url: "https://youtu.be/fSrO91XO1Ck",
+          caption: "",
+          credit: "<a href=\"http://unidiscmusic.com\">Unidisc Music</a>"
+        },
+        start_date: {
+          year: 1978
+        },
+        text: {
+          headline: "First Recording",
+          text: "At the age of 15 Houston was featured on Michael Zager's song, Life's a Party."
+        },
+        background: {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group A"
+      };
+      const event3 = {
+        "media": {
+          "url": "https://youtu.be/_gvJCCZzmro",
+          "caption": "A young poised Whitney Houston in an interview with EbonyJet.",
+          "credit": "EbonyJet"
+        },
+        "start_date": {
+          "year": "1978"
+        },
+        "text": {
+          "headline": "The Early Years",
+          "text": "As a teen Houston's credits include background vocals for Jermaine Jackson, Lou Rawls and the Neville Brothers. She also sang on Chaka Khan's, 'I'm Every Woman,' a song which she later remade for the <i>Bodyguard</i> soundtrack which is the biggest selling soundtrack of all time. It sold over 42 million copies worldwide."
+        },
+        "background": {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group A"
+      };
+      const event4 = {
+        "media": {
+          "url": "https://youtu.be/H7_sqdkaAfo",
+          "caption": "I'm Every Women as performed by Whitney Houston.",
+          "credit": "Arista Records"
+        },
+        "start_date": {
+          "year": "1978"
+        },
+        "text": {
+          "headline": "Early Album Credits",
+          "text": "As a teen Houston's credits include background vocals for Jermaine Jackson, Lou Rawls and the Neville Brothers. She also sang on Chaka Khan's, 'I'm Every Woman,' a song which she later remade for the <i>Bodyguard</i> soundtrack which is the biggest selling soundtrack of all time. It sold over 42 million copies worldwide."
+        },
+        "background": {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group B"
+      };
+      const event5 = {
+        "media": {
+          "url": "https://youtu.be/A4jGzNm2yPI",
+          "caption": "Whitney Houston and Clive Davis discussing her discovery and her eponymous first album.",
+          "credit": "Sony Music Entertainment"
+        },
+        "start_date": {
+          "year": "1983"
+        },
+        "text": {
+          "headline": "Signed",
+          "text": "Houston is signed to Arista Records after exec Clive Davis sees her performing on stage with her mother in New York."
+        },
+        "background": {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group B"
+      };
+      const event6 = {
+        "media": {
+          "url": "https://youtu.be/m3-hY-hlhBg",
+          "caption": "The 'How Will I Know' video showcases the youthful energy that boosted Houston to stardom.",
+          "credit": "Arista Records Inc."
+        },
+        "start_date": {
+          "year": "1985"
+        },
+        "text": {
+          "headline": "Debut",
+          "text": "Whitney Houston's self titled first release sold over 12 million copies in the U.S. and included the hit singles 'How Will I Know,' 'You Give Good Love,' 'Saving All My Love For You' and 'Greatest Love of All.'"
+        },
+        "background": {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group B"
+      };
+      const event7 = {
+        "media": {
+          "url": "https://youtu.be/v0XuiMX1XHg",
+          "caption": "Dionne Warwick gleefully announces cousin, Whitney Houston, the winner of the Best Female Pop Vocal Performance for the song Saving All My Love.",
+          "credit": "<a href='http://grammy.org'>The Recording Academy</a>"
+        },
+        "start_date": {
+          "year": "1986"
+        },
+        "text": {
+          "headline": "'The Grammys'",
+          "text": "In 1986 Houston won her first Grammy for the song Saving All My Love. In total she has won six Grammys, the last of which she won in 1999 for It's Not Right But It's Okay."
+        },
+        "background": {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group C"
+      };
+      const event8 = {
+        "media": {
+          "url": "https://youtu.be/eH3giaIzONA",
+          "caption": "I Wanna Dance With Somebody",
+          "credit": "Arista Records Inc."
+        },
+        "start_date": {
+          "year": "1987"
+        },
+        "text": {
+          "headline": "'Whitney'",
+          "text": "Multiplatinum second album sells more than 20 million copies worldwide. With 'Whitney', Houston became the first female artist to produce four number 1 singles on one album including \"I Wanna Dance With Somebody,' 'Didn't We Almost Have It All,' 'So Emotional' and 'Where Do Broken Hearts Go.'"
+        },
+        "background": {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group C"
+      };
+      const event9 = {
+        "media": {
+          "url": "https://youtu.be/96aAx0kxVSA",
+          "caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
+          "credit": "Arista Records Inc."
+        },
+        "start_date": {
+          "year": "1988"
+        },
+        "text": {
+          "headline": "\"One Moment In Time\"",
+          "text": "The artist's fame continues to skyrocket as she records the theme song for the Seoul Olympics, 'One Moment In Time.'"
+        },
+        "background": {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group D"
+      };
+      const event10 = {
+        "media": {
+          "url": "https://youtu.be/5Fa09teeaqs",
+          "caption": "CNN looks back at Houston's iconic performance of the national anthem at Superbowl XXV.",
+          "credit": "CNN"
+        },
+        "start_date": {
+          "year": "1991"
+        },
+        "text": {
+          "headline": "Super Bowl",
+          "text": "Houston's national anthem performance captures the hearts and minds of Americans ralllying behind soldiers in the Persian Guf War."
+        },
+        "background": {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        },
+        group: "Group D"
+      };
+
+      const era1 = {
+        start_date: {
+          year: 1950
+        },
+        end_date: {
+          year: 1960
+        },
+        text: {
+          headline:
+            "<p class='text-white fs-6'>some era one</p>"
+        }
+      };
+      const era2 = {
+        start_date: {
+          year: 1960
+        },
+        end_date: {
+          year: 1970
+        },
+        text: {
+          headline:
+            "<p class='text-white fs-6'>some era two</p>"
+        }
+      };
+      const era3 = {
+        start_date: {
+          year: 1970
+        },
+        end_date: {
+          year: 1980
+        },
+        text: {
+          headline:
+            "<p class='text-white fs-6'>some era three</p>"
+        }
+      };
+
+      const title = {
+        text: {
+          headline: "Manuscripts Museum",
+          text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur tempore veniam blanditiis praesentium, assumenda omnis officia quam impedit provident vero? Nobis, quaerat aperiam ullam inventore eum culpa ratione non delectus."
+        },
+        background: {
+          url: "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+        }
+      };
+
+      const data = {
+        events: [event1, event2, event3, event4, event5, event6, event7, event8, event9, event10],
+        eras: [era1, era2, era3],
+        title: title,
+      }
+      const myTl = new TL.Timeline("my-timeline", data, {
+        type: 'timeline',
+        width: "100%",
+        height: '100vh'
+      });
+    </script>
+  </body>
+
+</html>
